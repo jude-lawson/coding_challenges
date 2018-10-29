@@ -17,3 +17,12 @@ Given a range of consecutive integers print the range of integers given the foll
 - If none of the above, simply print the integer.
 
 Implement a program that takes in the user input as the maximum value in the range and outputs the list of numbers-FizzBuzz'ed.
+
+### Is It Prime?
+
+Given an integer, determine whether or not the integer is a prime number (indivisible) by any number but itself.
+
+- Prompt the user for input
+- Check that it is an integer
+- Determine if it's prime
+- Print out 'Prime' or 'Not Prime'
