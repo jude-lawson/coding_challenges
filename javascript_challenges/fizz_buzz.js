@@ -9,6 +9,12 @@ rl.question('What range do you want? ', range => {
   var range = Array.from({length: (parseInt(range) + 1)}, (_initial_value, index) => index)
   range.shift();
 
+  fizzBuzzIt(range);
+
+  rl.close();
+});
+
+const fizzBuzzIt = range => {
   range.forEach(number => {
     if ((number % 3 === 0) && (number % 5 === 0)) {
       console.log('FizzBuzz');
@@ -20,6 +26,4 @@ rl.question('What range do you want? ', range => {
       console.log(number);
     }
   });
-
-  rl.close();
-});
+}
