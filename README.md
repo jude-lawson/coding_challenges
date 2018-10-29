@@ -3,6 +3,15 @@
 ## Summary
 A collection of coding challenges to be implemented in multiple languages.
 
+## Getting Started
+
+### Hello, World!
+It is generally accepted as the first program to write in any language: Hello, World! The goal? Write an application that, when executed, prints out the phrase 'Hello, World!' in the current environment whether it be the command line the browser or anything in between.
+
+Want to take it further? Make 'World' dynamic and accept an argument with which to replace it. Prompt the user for who they would like to greet and take that input and say 'Hello #{whoever}'. And! If they don't enter anything, use 'World' by default.
+
+Happy coding!
+
 ## Challenges
 
 ### FizzBuzz
