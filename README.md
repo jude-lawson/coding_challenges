@@ -35,3 +35,13 @@ Given an integer, determine whether or not the integer is a prime number (indivi
 - Check that it is an integer
 - Determine if it's prime
 - Print out 'Prime' or 'Not Prime'
+
+### Valid Parentheses Pairs
+
+Given a string of opening and closing parentheses, write a method that returns the number of parentheses that make up the total number of _valid_, _direct_ pairs. For example:
+
+"())" => 2
+"()())" => 4
+"(()())" => 4
+")(((" => 0
+"" => 0
