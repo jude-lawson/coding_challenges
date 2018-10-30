@@ -1,43 +1,55 @@
-def check_valid_parentheses(parentheses_string)
-  parentheses = parentheses_string.split('')
-  count_direct_pairs(parentheses)
-end
-
-def count_direct_pairs(parentheses, current_index = 0, total = 0)
-  if !parentheses[current_index + 1]
-    puts "Total number of direct parenthetical paris is: #{total}"
-    return total
+def get_largest_valid_substring_from_left(parentheses)
+  if is_valid_substring(parentheses)
+    return parentheses.length
   else
-    if parentheses[current_index] == '('
-      if parentheses[current_index + 1] == ')'
-        total += 2
-        current_index += 1
-        count_direct_pairs(parentheses, current_index, total)
-      else
-        current_index += 1
-        count_direct_pairs(parentheses, current_index, total)
-      end
-    else
-      current_index += 1
-      count_direct_pairs(parentheses, current_index, total)
-    end
+    substring = parentheses[1..-1]
+    get_largest_valid_substring_from_left(substring)
   end
 end
 
-# Base Case
-    # Once next is nil
-  # Recursive Case
-    # Is current_parentheses an open parens?
-      # If next_parentheses is a close parentheses
-        # Add 2 to total_valid_parentheses
-        # Add 1 to index
-        # Call recursively
-      # Else
-        # Add 1 to index
-        # Call recursively
+def get_largest_valid_substring_from_right(parentheses)
+  if is_valid_substring(parentheses)
+    return parentheses.length
+  else
+    substring = parentheses[0..-2]
+    get_largest_valid_substring_from_right(substring)
+  end
+end
 
-check_valid_parentheses("())") # => 2
-check_valid_parentheses("()())") # => 4
-check_valid_parentheses("(()())") # => 4
-check_valid_parentheses(")(((") # => 0
-check_valid_parentheses("") # => 0
+def get_largest_valid_substring_count(parentheses)
+  right_result = get_largest_valid_substring_from_right(parentheses)
+  left_result = get_largest_valid_substring_from_left(parentheses)
+  if right_result >= left_result
+    puts right_result
+    return right_result
+  else
+    puts left_result
+    return left_result
+  end
+end
+
+def is_valid_substring(parentheses)
+  return false if parentheses.length % 2 != 0
+
+  stack = []
+  parentheses.each_char do |character|
+    if character == '('
+      stack.push(character)
+    elsif stack.empty? && character == ')'
+      return false
+    else
+      stack.pop
+    end
+  end
+  
+  return true if stack.empty?
+  return false
+end
+
+get_largest_valid_substring_count("())") # => 2
+get_largest_valid_substring_count("()())") # => 4
+get_largest_valid_substring_count("()()))") # => 4
+get_largest_valid_substring_count("(()()") # => 4
+get_largest_valid_substring_count("(()())") # => 6
+get_largest_valid_substring_count(")(((") # => 0
+get_largest_valid_substring_count("") # => 0
