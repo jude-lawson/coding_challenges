@@ -36,6 +36,15 @@ Given an integer, determine whether or not the integer is a prime number (indivi
 - Determine if it's prime
 - Print out 'Prime' or 'Not Prime'
 
+### Smallest Change Combination
+
+Given a string that is a dollar/cents value (ex: "1.25"), find the smallest number of coins that combined make up the total provided. For example:
+
+Given "1.25", output => {quarters: 5} (correct)
+Given "1.25", output => {dimes: 10, nickels: 1} (incorrect)
+Given "1.26", output => {quarters: 5, pennies: 1} (correct)
+
+
 ### Valid Parentheses Pairs
 
 Given a string of opening and closing parentheses, write a method that returns the number of parentheses that make up the total number of _valid_, _direct_ pairs. For example:
